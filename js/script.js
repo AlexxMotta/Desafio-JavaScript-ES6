@@ -107,6 +107,7 @@ function atualizar() {
   if (pedido.getStatus() == "Entregue") {
     window.setTimeout(function () {
       statusPedido.textContent = pedido.getStatus();
+      alert("Pedido entregue");
     }, 3000);
   } else {
     statusPedido.textContent = pedido.getStatus();
@@ -115,6 +116,9 @@ function atualizar() {
 
 buttonFinalizarPedido.addEventListener("click", () => {
   pedido.finalizarPedido();
+  alert(
+    `Aguardando o pagamento do pedido de descrição ${pedido.getDescricao()} e valor ${pedido.getPreco()}`
+  );
   atualizar();
 });
 buttonFinalizarPagamento.addEventListener("click", () => {
